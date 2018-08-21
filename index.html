@@ -1,0 +1,361 @@
+<!doctype html>
+
+<html lang="en">
+    
+    <head>
+        <meta charset="UTF-8">
+        <title>حساب المعدل التراكمي - جامعة الملك سعود</title>
+        <link rel="stylesheet" type="text/css" href="css/stylesheet.css" >
+        <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.2.1.min.js"></script>
+        <script src="script.js"></script>
+        <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">       
+    </head>
+    
+    <body>
+        <img align="middle" id="logo" src="img/logo.png" >
+        
+        <h1 hidden> برنامج سهل الاستخدام لحساب المعدل التراكمي و الفصلي لطلاب جامعة الملك سعود بسرعة و دقة , البرنامج من تطوير طالب في كلية الحاسب في جامعة الملك سعود , وضاح عصام  </h1>
+
+        <div class="main-container" >
+            
+            <fieldset style="display:inline" class="student-info" dir="rtl">
+                <legend>الساعات / المعدل التراكمي</legend>
+                
+                <table>
+                    <tr>
+                        <td></td>
+                        <td><p style="position:relative;bottom:4px;left:15px">عدد الساعات السابقة</p></td>
+                        <td><input  id="hours-text" style="margin-bottom:10px" size=3 type="number" min="1" max="200" onkeyup="calculateGPA()"  onchange="calculateGPA()" ></td>
+                    </tr>
+                    <tr>
+                        <td><input checked onclick="changeMethod()" value="gpa" class="radio-button" type="radio" name="gpa-type" ></td>
+                        <td><p>المعدل التراكمي</p></td>
+                        <td><input  id="gpa-text" type="number" min="1" max="5" onkeyup="calculateGPA()" onchange="calculateGPA()" > </td>
+                    </tr>
+                    
+                    <tr>
+                        <td><input onclick="changeMethod()" value="points" class="radio-button" type="radio" name="gpa-type" ></td>
+                        <td><p>النقاط التراكمية</p></td>
+                        <td><input disabled id="points-text" type="number" min="1" max="200" onkeyup="calculateGPA()" onchange="calculateGPA()" > </td>
+                    </tr>
+                </table>
+            </fieldset>
+            
+            <br>
+            
+            <table align="center"  dir="rtl" class="subjects-table">
+                <thead>
+                    <th></th>
+                    <th>اسم المادة</th>
+                    <th>الساعات</th>
+                    <th>التقدير</th>
+                </thead>
+                <tbody>
+                    <tr id="first-row">
+                        <td><p class="first-subject">1</p></td>
+                        <td><input size=3 class="subject-name"></td>
+                        <td> 
+                            <select id="first-hour" onchange="calculateGPA()">
+                                <option>1</option>
+                                <option selected>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="first-grade" onchange="calculateGPA()">
+                                <option selected>A+</option>
+                                <option>A</option>
+                                <option>B+</option>
+                                <option>B</option>
+                                <option>C+</option>
+                                <option>C</option>
+                                <option>D+</option>
+                                <option>D</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input class="checkbox" id="first-checkbox" checked type="checkbox"  onchange="calculateGPA()">
+                        </td>
+                    </tr>
+                    
+                    <tr id="second-row">
+                        <td><p class="second-subject">2</p></td>
+                        <td><input size=3 class="subject-name"></td>
+                        <td> 
+                            <select id="second-hour" onchange="calculateGPA()">
+                                <option>1</option>
+                                <option selected>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="second-grade" onchange="calculateGPA()">
+                                <option selected>A+</option>
+                                <option>A</option>
+                                <option>B+</option>
+                                <option>B</option>
+                                <option>C+</option>
+                                <option>C</option>
+                                <option>D+</option>
+                                <option>D</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input class="checkbox" id="second-checkbox" checked type="checkbox" onchange="calculateGPA()">
+                        </td>
+                    </tr>
+
+                    <tr id="third-row">
+                        <td><p class="third-subject">3</p></td>
+                        <td><input size=3 class="subject-name"></td>
+                        <td> 
+                            <select id="third-hour" onchange="calculateGPA()">
+                                <option>1</option>
+                                <option selected>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="third-grade" onchange="calculateGPA()">
+                                <option selected>A+</option>
+                                <option>A</option>
+                                <option>B+</option>
+                                <option>B</option>
+                                <option>C+</option>
+                                <option>C</option>
+                                <option>D+</option>
+                                <option>D</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input class="checkbox" id="third-checkbox" checked type="checkbox"  onchange="calculateGPA()">
+                        </td>
+                    </tr>
+                    
+                    <tr id="forth-row">
+                        <td><p class="forth-subject">4</p></td>
+                        <td><input size=3 class="subject-name"></td>
+                        <td> 
+                            <select id="forth-hour" onchange="calculateGPA()">
+                                <option>1</option>
+                                <option selected>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="forth-grade" onchange="calculateGPA()" >
+                                <option selected>A+</option>
+                                <option>A</option>
+                                <option>B+</option>
+                                <option>B</option>
+                                <option>C+</option>
+                                <option>C</option>
+                                <option>D+</option>
+                                <option>D</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input class="checkbox" id="forth-checkbox" checked type="checkbox" onchange="calculateGPA()" >
+                        </td>
+                    </tr>
+                    
+                    <tr id="fifth-row">
+                        <td><p class="fifth-subject">5</p></td>
+                        <td><input size=3 class="subject-name"></td>
+                        <td> 
+                            <select id="fifth-hour" onchange="calculateGPA()">
+                                <option>1</option>
+                                <option selected>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="fifth-grade" onchange="calculateGPA()" >
+                                <option selected>A+</option>
+                                <option>A</option>
+                                <option>B+</option>
+                                <option>B</option>
+                                <option>C+</option>
+                                <option>C</option>
+                                <option>D+</option>
+                                <option>D</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input class="checkbox" id="fifth-checkbox" checked type="checkbox" onchange="calculateGPA()" >
+                        </td>
+                    </tr>
+                    
+                    <tr id="sixth-row">
+                        <td><p class="sixth-subject">6</p></td>
+                        <td><input size=3 disabled class="subject-name"></td>
+                        <td> 
+                            <select disabled id="sixth-hour" onchange="calculateGPA()">
+                                <option >1</option>
+                                <option selected>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="sixth-grade" disabled onchange="calculateGPA()" >
+                                <option selected>A+</option>
+                                <option>A</option>
+                                <option>B+</option>
+                                <option>B</option>
+                                <option>C+</option>
+                                <option>C</option>
+                                <option>D+</option>
+                                <option>D</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input class="checkbox" id="sixth-checkbox" type="checkbox" onchange="calculateGPA()" >
+                        </td>
+                    </tr>
+                    
+                    <tr id="seventh-row">
+                        <td><p class="seventh-subject">7</p></td>
+                        <td><input size=3 disabled class="subject-name"></td>
+                        <td> 
+                            <select id="seventh-hour" disabled onchange="calculateGPA()" >
+                                <option disabled>1</option>
+                                <option selected>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="seventh-grade" disabled onchange="calculateGPA()">
+                                <option selected >A+</option>
+                                <option>A</option>
+                                <option>B+</option>
+                                <option>B</option>
+                                <option>C+</option>
+                                <option>C</option>
+                                <option>D+</option>
+                                <option>D</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input class="checkbox" id="seventh-checkbox" type="checkbox" onchange="calculateGPA()" >
+                        </td>
+                    </tr>
+                    
+                    <tr id="eighth-row">
+                        <td><p class="eighth-subject">8</p></td>
+                        <td><input size=3 disabled class="subject-name"></td>
+                        <td> 
+                            <select id="eighth-hour" disabled onchange="calculateGPA()" >
+                                <option disabled>1</option>
+                                <option selected>2</option>
+                                <option>3</option>
+                                <option>4</option>
+                                <option>5</option>
+                                <option>6</option>
+                                <option>7</option>
+                                <option>8</option>
+                            </select>
+                        </td>
+                        <td>
+                            <select id="eighth-grade" disabled onchange="calculateGPA()">
+                                <option selected >A+</option>
+                                <option>A</option>
+                                <option>B+</option>
+                                <option>B</option>
+                                <option>C+</option>
+                                <option>C</option>
+                                <option>D+</option>
+                                <option>D</option>
+                            </select>
+                        </td>
+                        <td>
+                            <input class="checkbox" id="eighth-checkbox" type="checkbox" onchange="calculateGPA()" >
+                        </td>
+                    </tr>
+                    
+                    
+                    
+                </tbody>
+            </table>
+            
+            <fieldset style="display:inline" dir="rtl">
+                <legend>الفصلي</legend>
+                <table>
+                    <tr>
+                        <td><p>النقاط</p></td>
+                        <td><p id="currentPoints" >50.00</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>المعدل</p></td>
+                        <td><p id="currentGPA">5.00</p></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><p>التقدير</p></td>
+                        <td><p id="currentStatment">ممتاز مرتفع</p></td>
+                    </tr>
+                </table>
+                
+            </fieldset>
+            
+            <fieldset style="display:inline" dir="rtl">
+                <legend>التراكمي</legend>
+                <table>
+                    <tr>
+                        <td><p>النقاط</p></td>
+                        <td><p id="totalPoints">50.00</p></td>
+                    </tr>
+                    <tr>
+                        <td><p>المعدل</p></td>
+                        <td><p id="totalGPA">5.00</p></td>
+                    </tr>
+                    
+                    <tr>
+                        <td><p>التقدير</p></td>
+                        <td><p id="totalStatememt">ممتاز مرتفع</p></td>
+                    </tr>
+                </table>
+                
+            </fieldset>
+            <br>
+            <a href="https://www.facebook.com/Wadah.Esam"><p style="position:relative;top:8px;font-family: 'Courier New', Courier, monospace;">Developed by Wadah Esam</p></a> 
+            
+        </div>
+    </body>
+    
+</html>
