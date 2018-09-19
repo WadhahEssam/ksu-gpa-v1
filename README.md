@@ -1,5 +1,5 @@
 # KSU GPA
-very simple and easy gpa calculator for King Saud University stuends ,( usablitiy was the biggest concern ) 
+very simple and easy gpa calculator for King Saud University students,( usablitiy was the biggest focus ) 
 
 
 since most of the gpa calculators around the internet are either hard to use or taking many steps or not responsive . this one is so simple that it solves all of those issues .
