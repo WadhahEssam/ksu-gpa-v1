@@ -14,10 +14,16 @@ function changeMethod () {
     calculateGPA() ; 
 }
 
+function loadValues() {
+    document.getElementById("hours-text").value = localStorage.getItem("hours");
+    document.getElementById("gpa-text").value = localStorage.getItem("gpa");
+    document.getElementById("points-text").value = localStorage.getItem("points");
+    calculateGPA();
+}
+
 
 // the most important function 
 function calculateGPA () {
-    
     var subjects = []; 
     subjects[0] = getPoints("first") ; 
     subjects[1] = getPoints("second") ; 
@@ -40,27 +46,24 @@ function calculateGPA () {
         }
     }
     
-    
     var currentGPA = sum /  hours  ; 
     var statement = getStatement ( currentGPA ) ; 
 
-    
     document.getElementById("currentGPA").innerHTML = currentGPA.toFixed(2) ; 
     document.getElementById("currentPoints").innerHTML = sum.toFixed(2) ; 
     document.getElementById("currentStatment").innerHTML = statement ; 
     
+    var previousHours = parseFloat(document.getElementById("hours-text").value); 
+    var previousGPA =  parseFloat(document.getElementById("gpa-text").value); 
+    var previousPoints =  parseFloat(document.getElementById("points-text").value); 
     
-    
-    var previousHours = parseFloat ( document.getElementById("hours-text").value )  ; 
-    var previousGPA =  parseFloat ( document.getElementById("gpa-text").value )  ; 
-    var previousPoints =  parseFloat ( document.getElementById("points-text").value )   ; 
-    
-    
+    localStorage.setItem("hours", previousHours);
+    localStorage.setItem("gpa", previousGPA);
+    localStorage.setItem("points", previousPoints);
     
     var totalGPA = 0.0 ; 
     var totalPoints = 0.0 ; 
     var totalHours = 0 ; 
-    
     
     var selected = document.querySelector('input[name="gpa-type"]:checked').value ;
 
