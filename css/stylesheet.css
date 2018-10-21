@@ -17,7 +17,7 @@ body::before {
   height: 100%;  
   opacity: .4; 
   z-index: -1;
-  background-image: url("https://img.freepik.com/free-vector/seamless-pattern-tile_1159-5367.jpg?size=338&ext=jpg");
+  background-image: url("https://raw.githubusercontent.com/WadhahEssam/ksu-gpa/master/img/background.png");
 }
 
 p {
