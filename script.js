@@ -14,16 +14,35 @@ function changeMethod () {
     calculateGPA() ; 
 }
 
+function saveState() {
+    // save the subjects' names
+    var subjects = [];
+    var subjectsInput = document.getElementsByClassName("subject-name");
+    for (var i = 0; i < subjectsInput.length; i++) {
+        subjects.push(subjectsInput[i].value);
+    }
+    localStorage.setItem('subjects', JSON.stringify(subjects));
+}
+
 function loadValues() {
+    // filling the gpa, hours, points
     document.getElementById("hours-text").value = localStorage.getItem("hours");
     document.getElementById("gpa-text").value = localStorage.getItem("gpa");
     document.getElementById("points-text").value = localStorage.getItem("points");
     calculateGPA();
+
+    // filling the subjects
+    var subjectsInput = document.getElementsByClassName("subject-name");
+    var subjects = JSON.parse(localStorage.getItem('subjects'));
+    for (var i = 0; i < subjectsInput.length; i++) {
+        subjectsInput[i].value = subjects[i];
+    }
 }
 
 
 // the most important function 
 function calculateGPA () {
+
     var subjects = []; 
     subjects[0] = getPoints("first") ; 
     subjects[1] = getPoints("second") ; 
@@ -60,7 +79,7 @@ function calculateGPA () {
     localStorage.setItem("hours", previousHours);
     localStorage.setItem("gpa", previousGPA);
     localStorage.setItem("points", previousPoints);
-    
+
     var totalGPA = 0.0 ; 
     var totalPoints = 0.0 ; 
     var totalHours = 0 ; 
@@ -105,8 +124,6 @@ function calculateGPA () {
             document.getElementById("currentPoints").innerHTML = "-" ; 
             document.getElementById("currentStatment").innerHTML = "-" ; 
     }
-    
-    
     
 }
 
