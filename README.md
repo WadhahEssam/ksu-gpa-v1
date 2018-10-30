@@ -12,4 +12,4 @@ https://wadhahessam.github.io/ksu-gpa/
 
 
 
-![alt text](https://github.com/WadhahEssam/ksu-gpa/blob/master/ksu-gpa-image.png)
+![alt text](https://github.com/WadhahEssam/ksu-gpa-v1/blob/master/ksu-gpa-image.png)
